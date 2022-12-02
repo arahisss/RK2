@@ -8,7 +8,6 @@
     ?>
 
     <div class="box">
-        <h4>djsjkljklkl</h4>
         <?php 
             while($book = mysqli_fetch_assoc($result)){
             ?>

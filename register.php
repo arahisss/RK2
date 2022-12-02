@@ -15,7 +15,9 @@ require("db.php");?>
                             );
                         }
                         //$id = mysqli_insert_id($connect);
-                        header("Location: index_auth.php");
+                        $current_user = $_POST["login"];;
+
+                        header('Location: index_auth.php?user='.$current_user.'');
                     }
                 ?>
                 <form action="?index_auth.php" class="form" method="post" enctype="multipart/form-data">

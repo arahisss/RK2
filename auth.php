@@ -26,7 +26,7 @@ require("db.php");?>
                     "); // добавить шифрование
                     
                     
-                    if(!$result || mysqli_num_rows($result) == 0){
+                    if (!$result || mysqli_num_rows($result) == 0) {
                         // echo "Неверный логин или пароль";
                         exit;
                     }
@@ -34,7 +34,12 @@ require("db.php");?>
                     session_start();
                     $_SESSION["user"] = mysqli_fetch_assoc($result);
                     
-                    header("Location: index_auth.php")
+                    $session_user = (isset($_SESSION["user"])) ? $_SESSION["user"] : false;
+
+                    $current_user = $_POST["login"];;
+                    
+                    
+                    header('Location: index_auth.php?user='.$current_user.'');
                     ?>
                 </form>
 
